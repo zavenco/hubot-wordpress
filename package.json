@@ -1,39 +1,30 @@
 {
   "name": "hubot-wordpress",
   "description": "Wordpress search integration for Hubot",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Arthur Krupa <arthur@zaven.pl>",
   "license": "MIT",
-
   "keywords": "hubot, hubot-scripts, wordpress, search",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/zavenco/hubot-wordpress.git"
   },
-
   "bugs": {
     "url": "https://github.com/zavenco/hubot-wordpress/issues"
   },
-
-  "dependencies": {
-  },
-
+  "dependencies": {},
   "peerDependencies": {
     "hubot": "2.x"
   },
-
   "devDependencies": {
     "coffee-script": "1.6.3",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-release": "~0.11.0",
     "hubot": "2.x",
-    "matchdep": "~0.3.0",
+    "matchdep": "~0.3.0"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "publish": "grunt release"
   }
