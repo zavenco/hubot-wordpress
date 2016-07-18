@@ -1,7 +1,7 @@
 {
   "name": "hubot-wordpress",
   "description": "Wordpress search integration for Hubot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Arthur Krupa <arthur@zaven.pl>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, wordpress, search",
