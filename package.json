@@ -1,5 +1,5 @@
 {
-  "name": "hubot-hubot-wordpress",
+  "name": "hubot-wordpress",
   "description": "Wordpress search integration for Hubot",
   "version": "0.0.1",
   "author": "Arthur Krupa <arthur@zaven.pl>",
@@ -9,11 +9,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/zavenco/hubot-hubot-wordpress.git"
+    "url": "git://github.com/zavenco/hubot-wordpress.git"
   },
 
   "bugs": {
-    "url": "https://github.com/zavenco/hubot-hubot-wordpress/issues"
+    "url": "https://github.com/zavenco/hubot-wordpress/issues"
   },
 
   "dependencies": {
