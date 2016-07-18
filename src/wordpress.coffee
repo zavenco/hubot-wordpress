@@ -47,7 +47,7 @@ module.exports = (robot) ->
 		RESPOND_TRIGGER = "wp"
 	
 	if process.env.HUBOT_WORDPRESS_HEAR_TRIGGERS
-		HEAR_TRIGGERS = HEAR_TRIGGERS.split(";")
+		HEAR_TRIGGERS = HUBOT_WORDPRESS_HEAR_TRIGGERS.split(";")
 	else
 		HEAR_TRIGGERS = []
 		console.log "No hear triggers defined, Hubot will only react to direct messages"
