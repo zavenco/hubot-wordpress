@@ -25,49 +25,51 @@ module.exports = (robot) ->
 	#
 	# Process environment variables
 	#
-	
+
 	if process.env.HUBOT_WORDPRESS_URL
 		WORDPRESS_URL = process.env.HUBOT_WORDPRESS_URL
 	else
 		console.log "Please specify HUBOT_WORDPRESS_URL environment variable"
 		return
-		
+
 	if process.env.HUBOT_WORDPRESS_QUERY_URL
 		QUERY_URL = process.env.HUBOT_WORDPRESS_QUERY_URL
 	else
 		console.log "Please specify HUBOT_WORDPRESS_QUERY_URL environment variable"
 		return
-	
+
 	QUERY_MIN_CHARS = if process.env.HUBOT_WORDPRESS_QUERY_MIN_CHARS then parseInt(process.env.HUBOT_WORDPRESS_QUERY_MIN_CHARS) else 3;
 	QUERY_MAX_RESULTS = if process.env.HUBOT_WORDPRESS_QUERY_MAX_RESULTS then parseInt(process.env.HUBOT_WORDPRESS_QUERY_MAX_RESULTS) else 5;
-	
+
 	if process.env.HUBOT_WORDPRESS_RESPOND_TRIGGER
 		RESPOND_TRIGGER = process.env.HUBOT_WORDPRESS_RESPOND_TRIGGER
 	else
 		RESPOND_TRIGGER = "wp"
-	
+
 	if process.env.HUBOT_WORDPRESS_HEAR_TRIGGERS
 		HEAR_TRIGGERS = process.env.HUBOT_WORDPRESS_HEAR_TRIGGERS.split(";")
 	else
 		HEAR_TRIGGERS = []
 		console.log "No hear triggers defined, Hubot will only react to direct messages"
-	
+
 	if process.env.HUBOT_WORDPRESS_SITE_NAME
 		SITE_NAME = process.env.HUBOT_WORDPRESS_SITE_NAME
 	else
 		SITE_NAME = "wordpress"
-		
+
 	#
 	# Perform search
-	#	
-	
+	#
+
 	re = new RegExp("\("+HEAR_TRIGGERS.join("|")+"\) (.*)\\?", "i");
+	reRespond = new RegExp(RESPOND_TRIGGER+" (.*)", "i");
+
 	prevQuery = ""
 	prevQueryResults = 0
 
 	getAnswers = (msg, query, reportFailure) ->
 		prevQuery = query
-		
+
 		# remove English articles from beginning of query
 		query = query.replace(/^((the|a|an|my|your|his|her|our|their)\s)/, '');
 
@@ -133,7 +135,7 @@ module.exports = (robot) ->
 			# answer without error messages if question isn't repeated
 			getAnswers(msg,query,false)
 
-	robot.respond /pomoc (.*)/i, (msg) ->
+	robot.respond reRespond, (msg) ->
 		# respond with error messages if
 		query = msg.match[1]
 		getAnswers(msg,query,true)
