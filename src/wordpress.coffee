@@ -18,7 +18,7 @@
 #   Requires WP JSON API: https://pl.wordpress.org/plugins/json-api/
 #
 # Author:
-#   Arthur Krupa
+#   Arthur Krupa <arthurkrupa@users.noreply.github.com>
 
 module.exports = (robot) ->
 
